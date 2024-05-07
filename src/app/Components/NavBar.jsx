@@ -4,55 +4,36 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
-import GitHubIcon from "../../../public/github-icon.svg";
-import LinkedInIcon from "../../../public/linkedin-icon.svg";
-import Image from "next/image";
 
 const navLinks = [
   {
     title: "About",
-    path: "#about",
+    path: "/about",
+  },
+  {
+    title: "Experience",
+    path: "/",
   },
   {
     title: "Projects",
-    path: "#projects",
+    path: "/",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/",
   },
 ];
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
-      <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-3">
-        <div className="flex flex-row justify-center">
-          <Link
-            href={"https://github.com/HHok95/"}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="text-2xl md:text-5xl text-white font-semibold"
-          >
-            <Image
-              src={GitHubIcon}
-              alt="github logo"
-              className="h-8 w-8 md:h-12 md:w-12"
-            />
-          </Link>
-          <Link
-            href={"https://www.linkedin.com/in/hokheng/"}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="text-2xl md:text-5xl text-white font-semibold"
-          >
-            <Image
-              src={LinkedInIcon}
-              alt="linkedIn logo"
-              className="h-8 w-8 md:h-12 md:w-12"
-            />
-          </Link>
-        </div>
+      <div className="flex flex-wrap items-center justify-between mx-auto px-7 py-4 md:px-20 md:py-10">
+      <Link
+          href={"/"}
+          className="text-2xl md:text-5xl text-white font-semibold"
+        >
+          HH
+        </Link>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <button
@@ -71,12 +52,19 @@ const NavBar = () => {
           )}
         </div>
         <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0 items-center">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <NavLink href={link.path} title={link.title} />
               </li>
             ))}
+            <li>
+              <button className="px-1 py-1 rounded-full w-full sm:w-fit bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800">
+                <span className="block bg-[#121212] hover:bg-slate-800 text-white rounded-full px-5 py-2">
+                  Download CV
+                </span>
+              </button>
+            </li>
           </ul>
         </div>
       </div>

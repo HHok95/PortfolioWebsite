@@ -57,15 +57,21 @@ const AboutSection = () => {
   return (
     <section id="about" className="text-white">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:py-16">
-        <Image alt="" src="/Images/about-image.png" width={500} height={500} />
+        <Image
+          className="rounded-full"
+          src={"/Images/hero-image.jpeg"}
+          width={500}
+          height={500}
+          alt="Hero Image"
+        />
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            A resilient and results-driven IT professional with a strong &quot;can
-            do&quot; attitude, I excel in collaborative environments, leveraging my
-            software development expertise to drive innovation and achieve
-            business objectives. Skilled in communication and teamwork, I enjoy
-            fostering positive relationships and contributing to
+            A resilient and results-driven IT professional with a strong
+            &quot;can do&quot; attitude, I excel in collaborative environments,
+            leveraging my software development expertise to drive innovation and
+            achieve business objectives. Skilled in communication and teamwork,
+            I enjoy fostering positive relationships and contributing to
             cross-functional projects that deliver exceptional results.
             Committed to continuous learning and staying ahead in technology
             trends, I am poised to contribute effectively to impactful
