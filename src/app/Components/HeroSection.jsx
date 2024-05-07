@@ -25,7 +25,7 @@ const HeroSection = () => {
                     />
                 </h1>
                 <p className="text-gray-400 text-base sm:text-lg lg:text-xl mb-6">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit non ratione fugiat deserunt et. Placeat asperiores officiis facere animi maiores excepturi eaque, ullam doloremque ut dolorem, enim sapiente qui!
+                    I&apos;m currently looking for new opportunities, my inbox is always open. I&apos;ll try my best to get back to you!
                 </p>
                 <div>
                     <button className='px-6 py-3 rounded-full w-full sm:w-fit mr-4 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-200 text-white'>Hire Me</button>
