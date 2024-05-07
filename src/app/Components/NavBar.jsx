@@ -4,6 +4,9 @@ import Link from "next/link";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import GitHubIcon from "../../../public/github-icon.svg";
+import LinkedInIcon from "../../../public/linkedin-icon.svg";
+import Image from "next/image";
 
 const navLinks = [
   {
@@ -24,12 +27,32 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 py-3">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
-          LOGO
-        </Link>
+        <div className="flex flex-row justify-center">
+          <Link
+            href={"https://github.com/HHok95/"}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-2xl md:text-5xl text-white font-semibold"
+          >
+            <Image
+              src={GitHubIcon}
+              alt="github logo"
+              className="h-8 w-8 md:h-12 md:w-12"
+            />
+          </Link>
+          <Link
+            href={"https://www.linkedin.com/in/hokheng/"}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-2xl md:text-5xl text-white font-semibold"
+          >
+            <Image
+              src={LinkedInIcon}
+              alt="linkedIn logo"
+              className="h-8 w-8 md:h-12 md:w-12"
+            />
+          </Link>
+        </div>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <button
@@ -57,9 +80,7 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
-      {navbarOpen ? (
-        <MenuOverlay links={navLinks} />
-      ) : null}
+      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
     </nav>
   );
 };
