@@ -61,8 +61,8 @@ const AboutSection = () => {
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            A resilient and results-driven IT professional with a strong "can
-            do" attitude, I excel in collaborative environments, leveraging my
+            A resilient and results-driven IT professional with a strong &quot;can
+            do&quot; attitude, I excel in collaborative environments, leveraging my
             software development expertise to drive innovation and achieve
             business objectives. Skilled in communication and teamwork, I enjoy
             fostering positive relationships and contributing to
