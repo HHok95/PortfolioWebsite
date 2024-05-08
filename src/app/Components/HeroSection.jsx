@@ -5,15 +5,16 @@ import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
 import GitHubIcon from "../../../public/github-icon.svg";
 import LinkedInIcon from "../../../public/linkedin-icon.svg";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section>
-      <div className="flex sm:flex bg-dark px-4 pt-8">
-        <div className="hidden md:block min-h-screen">
+    <section className="h-screen flex justify-center">
+      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="grid grid-cols-1 sm:grid-cols-12 sm:mt-10">
+        <div className="hidden md:block col-span-2 place-self-center mt-4 lg:mt-0">
           <div
             id="left"
-            className="flex justify-center items-center min-h-screen pr-10"
+            className="flex justify-center items-center p-2"
           >
             
               <div className="flex flex-col justify-center">
@@ -44,9 +45,9 @@ const HeroSection = () => {
               </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="col-span-12 md:col-span-8 place-self-center text-center sm:text-left">
           <h1 className="text-white mb-4 text-4xl sm:text-6xl lg:text-7xl font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-pink-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
               Hello, I&apos;m
             </span>
             <br></br>
@@ -72,15 +73,15 @@ const HeroSection = () => {
             exposure to foster innovation and create meaningful impact.
           </p>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block col-span-2 place-self-center mt-4 lg:mt-0">
           <div
             id="right"
-            className="flex text-white justify-center items-center min-h-screen pr-10 rotate-90"
+            className="flex text-white justify-center items-center rotate-90"
           >
             henghok95@gmail.com
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

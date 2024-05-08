@@ -8,19 +8,19 @@ import MenuOverlay from "./MenuOverlay";
 const navLinks = [
   {
     title: "About",
-    path: "/about",
+    path: "#about",
   },
   {
     title: "Experience",
-    path: "/",
+    path: "#experience",
   },
   {
     title: "Projects",
-    path: "/projects",
+    path: "#projects",
   },
   {
     title: "Contact",
-    path: "/",
+    path: "#contact",
   },
 ];
 const NavBar = () => {
@@ -30,7 +30,7 @@ const NavBar = () => {
       <div className="flex flex-wrap items-center justify-between mx-auto px-7 py-4 md:px-20 md:py-10">
         <Link
           href={"/"}
-          className="text-2xl md:text-5xl font-bold bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-white bg-clip-text text-transparent rounded-full"
+          className=" mr-5 text-2xl md:text-5xl font-bold bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-white bg-clip-text text-transparent rounded-full"
         >
           HH
         </Link>
@@ -59,7 +59,7 @@ const NavBar = () => {
               </li>
             ))}
             <li>
-              <button className="px-1 py-1 rounded-full w-full sm:w-fit bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800">
+              <button className="px-1 py-1 rounded-full w-full sm:w-fit bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800">
                 <span className="block bg-[#121212] hover:bg-slate-800 text-white rounded-full px-5 py-2">
                   Download CV
                 </span>
