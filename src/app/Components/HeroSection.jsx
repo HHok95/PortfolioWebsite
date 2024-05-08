@@ -75,7 +75,7 @@ const HeroSection = () => {
         <div className="hidden md:block">
           <div
             id="right"
-            className="flex justify-center items-center min-h-screen pr-10 rotate-90"
+            className="flex text-white justify-center items-center min-h-screen pr-10 rotate-90"
           >
             henghok95@gmail.com
           </div>

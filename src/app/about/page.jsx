@@ -7,7 +7,7 @@ export default function About() {
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
       <NavBar />
-      <div class="container mx-auto px-12 py-4 md:py-24 lg:py-32 mt-10">
+      <div class="container mx-auto pt-4 px-6 md:pt-12 lg:pt-24 mt-16">
         <AboutSection />
       </div>
       <FooterSection />
