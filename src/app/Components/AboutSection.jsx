@@ -57,9 +57,21 @@ const AboutSection = () => {
     });
   };
 
+  const cardVariants = {
+    initial: { y: 100, opacity: 0, scale: 0.5 },
+    animate: { y: 0, opacity: 1, scale: 1 },
+  };
+
   return (
-    <section id="about" className="text-white" ref={ref}>
-      <motion.div initial={{ opacity: 0, scale: 0.5, y: 100 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1.5 }} className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:py-16">
+    <section id="about" className="text-white">
+      <motion.div
+        variants={cardVariants}
+        initial="initial"
+        animate={isInView ? "animate" : "initial"}
+        transition={{ duration: 1.5 }}
+        ref={ref}
+        className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:py-16"
+      >
         <Image
           className="rounded-full"
           src={"/Images/hero-image.jpeg"}
