@@ -58,13 +58,6 @@ const NavBar = () => {
                 <NavLink href={link.path} title={link.title} />
               </li>
             ))}
-            <li>
-              <button className="px-1 py-1 rounded-full w-full sm:w-fit bg-gradient-to-br from-primary-500 to-secondary-500 hover:bg-slate-800">
-                <span className="block bg-[#121212] hover:bg-slate-800 text-white rounded-full px-5 py-2">
-                  Download CV
-                </span>
-              </button>
-            </li>
           </ul>
         </div>
       </div>
