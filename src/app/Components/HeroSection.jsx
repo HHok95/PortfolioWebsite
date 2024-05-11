@@ -10,41 +10,7 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <section className="h-screen flex justify-center">
-      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="grid grid-cols-1 sm:grid-cols-12 sm:mt-10">
-        <div className="hidden md:block col-span-2 place-self-center mt-4 lg:mt-0">
-          <div
-            id="left"
-            className="flex justify-center items-center p-2"
-          >
-            
-              <div className="flex flex-col justify-center">
-                <Link
-                  href={"https://github.com/HHok95/"}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="text-2xl md:text-5xl text-white font-semibold"
-                >
-                  <Image
-                    src={GitHubIcon}
-                    alt="github logo"
-                    className="h-8 w-8 md:h-12 md:w-12"
-                  />
-                </Link>
-                <Link
-                  href={"https://www.linkedin.com/in/hokheng/"}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="text-2xl md:text-5xl text-white font-semibold"
-                >
-                  <Image
-                    src={LinkedInIcon}
-                    alt="linkedIn logo"
-                    className="h-8 w-8 md:h-12 md:w-12"
-                  />
-                </Link>
-              </div>
-          </div>
-        </div>
+      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="flex items-center justify-center sm:mt-10">
         <div className="col-span-12 md:col-span-8 place-self-center text-center sm:text-left">
           <h1 className="text-white mb-4 text-4xl sm:text-6xl lg:text-7xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
@@ -72,14 +38,6 @@ const HeroSection = () => {
             I am actively refining my skills and seeking substantial industry
             exposure to foster innovation and create meaningful impact.
           </p>
-        </div>
-        <div className="hidden md:block col-span-2 place-self-center mt-4 lg:mt-0">
-          <div
-            id="right"
-            className="flex text-white justify-center items-center rotate-90"
-          >
-            henghok95@gmail.com
-          </div>
         </div>
       </motion.div>
     </section>
