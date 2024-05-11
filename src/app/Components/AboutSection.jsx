@@ -63,7 +63,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="text-white">
+    <section id="about" className="text-white md:pt-32">
       <motion.div
         variants={cardVariants}
         initial="initial"
@@ -80,7 +80,7 @@ const AboutSection = () => {
           alt="Hero Image"
         />
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-mono font-bold text-white mb-4">ABOUT ME</h2>
           <p className="text-base lg:text-lg">
             A resilient and results-driven IT professional with a strong
             &quot;can do&quot; attitude, I excel in collaborative environments,
