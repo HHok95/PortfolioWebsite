@@ -68,7 +68,7 @@ const AboutSection = () => {
         variants={cardVariants}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 1 }}
         ref={ref}
         className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:py-16"
       >
