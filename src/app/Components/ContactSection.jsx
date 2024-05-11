@@ -24,25 +24,34 @@ const ContactSection = () => {
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
+          <Link
+            href={"https://github.com/HHok95/"}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Image src={GithubIcon} alt="Github Icon" />
           </Link>
-          <Link href="linkedin.com">
+          <Link
+            href={"https://www.linkedin.com/in/hokheng/"}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
       </div>
       <div className="flex flex-col gap-2 justify-center items-center md:items-start ">
         <div className="flex flex-col md:flex-row justify-center items-center">
-        <EnvelopeIcon className="h-12 w-12 text-white" />
-        <span className="text-2xl text-white px-6">henghok95@gmail.com</span>
+          <EnvelopeIcon className="h-12 w-12 text-white" />
+          <span className="text-2xl text-white px-6">henghok95@gmail.com</span>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center">
-        <MapPinIcon className="h-12 w-12 text-white" />
-        <span className="text-2xl text-white px-6">Melbourne, Victoria, Australia</span>
+          <MapPinIcon className="h-12 w-12 text-white" />
+          <span className="text-2xl text-white px-6">
+            Melbourne, Victoria, Australia
+          </span>
         </div>
       </div>
-      
     </section>
   );
 };
