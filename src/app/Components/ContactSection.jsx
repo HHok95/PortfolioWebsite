@@ -1,12 +1,42 @@
 "use client";
-import { React } from "react";
+import { React, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
-import { EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
 const ContactSection = () => {
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    };
+    const JSONdata = JSON.stringify(data);
+    // for testing email submission
+    // console.log(JSONdata);
+    const endpoint = "/api/send";
+
+    // Form the request for sending data to the server.
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    const response = await fetch(endpoint, options);
+
+    if (response.status === 200) {
+      console.log("Message sent.");
+      setEmailSubmitted(true);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -40,17 +70,68 @@ const ContactSection = () => {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col gap-2 justify-center items-center md:items-start ">
-        <div className="flex flex-col md:flex-row justify-center items-center">
-          <EnvelopeIcon className="h-12 w-12 text-white" />
-          <span className="text-2xl text-white px-6">henghok95@gmail.com</span>
-        </div>
-        <div className="flex flex-col md:flex-row justify-center items-center">
-          <MapPinIcon className="h-12 w-12 text-white" />
-          <span className="text-2xl text-white px-6">
-            Melbourne, Victoria, Australia
-          </span>
-        </div>
+      <div>
+        {emailSubmitted ? (
+          <p className="text-green-500 text-sm mt-2">
+            Message sent successfully!
+          </p>
+        ) : (
+          <form className="flex flex-col" onSubmit={handleSubmit}>
+            <div className="mb-6">
+              <label
+                htmlFor="email"
+                className="text-white block mb-2 text-sm font-medium"
+              >
+                Your email
+              </label>
+              <input
+                name="email"
+                type="email"
+                id="email"
+                required
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="alan.turing@machine.com"
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="subject"
+                className="text-white block text-sm mb-2 font-medium"
+              >
+                Subject
+              </label>
+              <input
+                name="subject"
+                type="text"
+                id="subject"
+                required
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="Just saying hi"
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="message"
+                className="text-white block text-sm mb-2 font-medium"
+              >
+                Message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                required
+                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                placeholder="Let's talk about..."
+              />
+            </div>
+            <button
+              type="submit"
+              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+            >
+              Send Message
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
