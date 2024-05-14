@@ -1,12 +1,61 @@
 "use client";
-import { React } from "react";
+import { React, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
-import { EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const contactFormSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+  subject: z.string().optional(),
+  message: z.string().min(1, { message: "Message cannot be empty" }),
+});
 
 const ContactSection = () => {
+  const { register, handleSubmit, formState, reset } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+  const { errors, isSubmitSuccessful } = formState;
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
+  const handleSubmission = async (formValues) => {
+    const JSONdata = JSON.stringify(formValues);
+    // for testing email submission
+    // console.log(JSONdata);
+    const endpoint = "/api/send";
+
+    // Form the request for sending data to the server.
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    //const response = await fetch(endpoint, options);
+    const response = await toast.promise(fetch(endpoint, options), {
+      pending: "Message is sending... 🚀",
+      success: "Message sent! 👌",
+      error: "Failed to send message. 😢",
+    });
+  };
+
   return (
     <section
       id="contact"
@@ -40,18 +89,70 @@ const ContactSection = () => {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col gap-2 justify-center items-center md:items-start ">
-        <div className="flex flex-col md:flex-row justify-center items-center">
-          <EnvelopeIcon className="h-12 w-12 text-white" />
-          <span className="text-2xl text-white px-6">henghok95@gmail.com</span>
-        </div>
-        <div className="flex flex-col md:flex-row justify-center items-center">
-          <MapPinIcon className="h-12 w-12 text-white" />
-          <span className="text-2xl text-white px-6">
-            Melbourne, Victoria, Australia
-          </span>
-        </div>
+      <div>
+        <form
+          className="flex flex-col"
+          onSubmit={handleSubmit(handleSubmission)}
+        >
+          <div className="mb-6">
+            <label className="text-white block mb-2 text-sm font-medium">
+              Your email
+            </label>
+            <input
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="alan.turing@machine.com"
+              {...register("email")}
+            />
+            <div className="text-red-500 text-xs px-2 py-1">
+              {errors.email?.message}
+            </div>
+          </div>
+          <div className="mb-6">
+            <label className="text-white block text-sm mb-2 font-medium">
+              Subject
+            </label>
+            <input
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Just saying hi"
+              {...register("subject")}
+            />
+            <div className="text-red-500 text-xs px-2">
+              {errors.subject?.message}
+            </div>
+          </div>
+          <div className="mb-6">
+            <label className="text-white block text-sm mb-2 font-medium">
+              Message
+            </label>
+            <textarea
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Let's talk about..."
+              {...register("message")}
+            />
+            <div className="text-red-500 text-xs px-2 py-1">
+              {errors.message?.message}
+            </div>
+          </div>
+          <button
+            type="submit"
+            className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </section>
   );
 };
