@@ -1,21 +1,40 @@
 "use client";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const contactFormSchema = z.object({
+  email: z.string().email({ message: "Invalid email address" }),
+  subject: z.string().optional(),
+  message: z.string().min(1, { message: "Message cannot be empty" }),
+});
 
 const ContactSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const { register, handleSubmit, formState, reset } = useForm({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      email: "",
+      subject: "",
+      message: "",
+    },
+  });
+  const { errors, isSubmitSuccessful } = formState;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
+
+  const handleSubmission = async (formValues) => {
+    const JSONdata = JSON.stringify(formValues);
     // for testing email submission
     // console.log(JSONdata);
     const endpoint = "/api/send";
@@ -29,12 +48,12 @@ const ContactSection = () => {
       body: JSONdata,
     };
 
-    const response = await fetch(endpoint, options);
-
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
-    }
+    //const response = await fetch(endpoint, options);
+    const response = await toast.promise(fetch(endpoint, options), {
+      pending: "Message is sending... 🚀",
+      success: "Message sent! 👌",
+      error: "Failed to send message. 😢",
+    });
   };
 
   return (
@@ -71,68 +90,69 @@ const ContactSection = () => {
         </div>
       </div>
       <div>
-        {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Message sent successfully!
-          </p>
-        ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="mb-6">
-              <label
-                htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium"
-              >
-                Your email
-              </label>
-              <input
-                name="email"
-                type="email"
-                id="email"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="alan.turing@machine.com"
-              />
+        <form
+          className="flex flex-col"
+          onSubmit={handleSubmit(handleSubmission)}
+        >
+          <div className="mb-6">
+            <label className="text-white block mb-2 text-sm font-medium">
+              Your email
+            </label>
+            <input
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="alan.turing@machine.com"
+              {...register("email")}
+            />
+            <div className="text-red-500 text-xs px-2 py-1">
+              {errors.email?.message}
             </div>
-            <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Subject
-              </label>
-              <input
-                name="subject"
-                type="text"
-                id="subject"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Just saying hi"
-              />
+          </div>
+          <div className="mb-6">
+            <label className="text-white block text-sm mb-2 font-medium">
+              Subject
+            </label>
+            <input
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Just saying hi"
+              {...register("subject")}
+            />
+            <div className="text-red-500 text-xs px-2">
+              {errors.subject?.message}
             </div>
-            <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Let's talk about..."
-              />
+          </div>
+          <div className="mb-6">
+            <label className="text-white block text-sm mb-2 font-medium">
+              Message
+            </label>
+            <textarea
+              className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+              placeholder="Let's talk about..."
+              {...register("message")}
+            />
+            <div className="text-red-500 text-xs px-2 py-1">
+              {errors.message?.message}
             </div>
-            <button
-              type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
-            >
-              Send Message
-            </button>
-          </form>
-        )}
+          </div>
+          <button
+            type="submit"
+            className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </section>
   );
 };
