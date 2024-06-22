@@ -12,6 +12,7 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Programming (Python, Java, C++)</li>
         <li>Website Development</li>
+        <li>REST API</li>
         <li>Docker</li>
         <li>AWS</li>
         <li>Database</li>
