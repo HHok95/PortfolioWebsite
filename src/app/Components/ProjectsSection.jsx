@@ -19,7 +19,6 @@ const projectsData = [
     description: "A Machine Learning system that can classify histopathology images of cancerous cells with an f1-score of 0.86 trained on over 20,000 images.",
     image: "/Images/Projects/2.png",
     tag: ["All", "Web"],
-    gitUrl: "#project",
     previewUrl: "#project",
   },
   {
@@ -28,7 +27,6 @@ const projectsData = [
     description: "A high-precision spacecraft pose estimation ML model in Python using Tensorflow through rigorous team-based efforts and iterative testing.",
     image: "/Images/Projects/3.png",
     tag: ["All", "Web"],
-    gitUrl: "#project",
     previewUrl: "#project",
   }
 ];
@@ -61,7 +59,6 @@ const ProjectsSection = () => {
               title={project.title}
               description={project.description}
               tags={project.tag}
-              gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
             />
           </motion.li>
