@@ -10,8 +10,9 @@ const ExperienceData = [
     company: "Sahara Space Pty Ltd",
     date: "Jul. 2023 -- Nov. 2023",
     descriptions: [
-      "Led the development of the On-Board Machine Learning system for estimating spacecraft pose.",
-      "Utilised the SPEED dataset for the initial design and development of the Convolutional Neural Networks.",
+      "Led the development of the On-Board Machine Learning system for estimating spacecraft pose, utilizing the SPEED dataset for initial model design and development",
+      "As Project Team Lead, allocated work, conducted client meetings, and implemented optimization techniques to enhance performance",
+      "Leveraged skills in Python, machine learning, and project management",
     ],
     imgUrl: "/Images/sahara_logo.png",
   },
