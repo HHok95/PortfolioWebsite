@@ -81,15 +81,7 @@ const AboutSection = () => {
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
           <h2 className="text-4xl font-mono font-bold text-white mb-4">ABOUT ME</h2>
           <p className="text-base lg:text-lg">
-            A resilient and results-driven IT professional with a strong
-            &quot;can do&quot; attitude, I excel in collaborative environments,
-            leveraging my software development expertise to drive innovation and
-            achieve business objectives. Skilled in communication and teamwork,
-            I enjoy fostering positive relationships and contributing to
-            cross-functional projects that deliver exceptional results.
-            Committed to continuous learning and staying ahead in technology
-            trends, I am poised to contribute effectively to impactful
-            initiatives and drive business success.
+            Highly motivated and ambitious Computer Science graduate seeking an entry level position to leverage my strong technical skills and 1+ years of customer service experience, while contributing to a company&apos;s growth and achieving its goals.
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
