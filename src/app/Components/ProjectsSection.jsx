@@ -10,8 +10,6 @@ const projectsData = [
     description: "A React-based Grocery Price Matching and Delivery platform with Microservice Architecture, leveraging Spring Boot MVC for API development and implementing a CI/CD pipeline using GitHub Actions for automated deployment.",
     image: "/Images/Projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "#project",
-    previewUrl: "#project",
   },
   {
     id: 2,
@@ -19,7 +17,6 @@ const projectsData = [
     description: "A Machine Learning system that can classify histopathology images of cancerous cells with an f1-score of 0.86 trained on over 20,000 images.",
     image: "/Images/Projects/2.png",
     tag: ["All", "Web"],
-    previewUrl: "#project",
   },
   {
     id: 3,
@@ -27,7 +24,6 @@ const projectsData = [
     description: "A high-precision spacecraft pose estimation ML model in Python using Tensorflow through rigorous team-based efforts and iterative testing.",
     image: "/Images/Projects/3.png",
     tag: ["All", "Web"],
-    previewUrl: "#project",
   }
 ];
 
@@ -59,7 +55,6 @@ const ProjectsSection = () => {
               title={project.title}
               description={project.description}
               tags={project.tag}
-              previewUrl={project.previewUrl}
             />
           </motion.li>
         ))}

@@ -1,5 +1,5 @@
 "use client";
-import { React, useState, useEffect } from "react";
+import { React, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import GithubIcon from "../../../public/github-icon.svg";
@@ -35,8 +35,6 @@ const ContactSection = () => {
 
   const handleSubmission = async (formValues) => {
     const JSONdata = JSON.stringify(formValues);
-    // for testing email submission
-    // console.log(JSONdata);
     const endpoint = "/api/send";
 
     // Form the request for sending data to the server.
@@ -48,7 +46,6 @@ const ContactSection = () => {
       body: JSONdata,
     };
 
-    //const response = await fetch(endpoint, options);
     const response = await toast.promise(fetch(endpoint, options), {
       pending: "Message is sending... 🚀",
       success: "Message sent! 👌",

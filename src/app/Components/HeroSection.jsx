@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-import Link from "next/link";
-import GitHubIcon from "../../../public/github-icon.svg";
-import LinkedInIcon from "../../../public/linkedin-icon.svg";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
