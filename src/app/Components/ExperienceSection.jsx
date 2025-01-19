@@ -6,7 +6,22 @@ import { motion, useInView } from "framer-motion";
 const ExperienceData = [
   {
     id: 1,
-    title: "Project Team Lead",
+    title: "Software Engineer Intern",
+    company: "Beyond Zero Technologies Pty Ltd",
+    date: "Nov. 2024 -- Current",
+    descriptions: [
+      "Assist in developing and implementing frontend and backend solutions",
+      "Collaborate with UX/UI teams to create seamless user experiences",
+      "Participate in QA processes by understanding project requirements and executing AC testing",
+      "Learn how to write automated tests, including unit, end-to-end, and integration tests, using modern testing frameworks",
+      "Help maintain and update documentation for both frontend and backend components",
+      "Learn and apply best practices for code quality and performance",  
+    ],
+    imgUrl: "/Images/bztIcon.png",
+  },
+  {
+    id: 2,
+    title: "Machine Learning Engineer",
     company: "Sahara Space Pty Ltd",
     date: "Jul. 2023 -- Nov. 2023",
     descriptions: [
@@ -17,7 +32,7 @@ const ExperienceData = [
     imgUrl: "/Images/sahara_logo.png",
   },
   {
-    id: 2,
+    id: 3,
     title: "Software Engineer",
     company: "COSC2299",
     date: "Jul. 2023 -- Nov. 2023",

@@ -10,13 +10,12 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>Programming (Python, Java, C++)</li>
-        <li>Website Development</li>
-        <li>REST API</li>
-        <li>Docker</li>
-        <li>AWS</li>
-        <li>Database</li>
+        <li>Proficient in Python, TypeScript, C++, and SQL</li>
+        <li>Experience with React, Vite, and modern web development</li>
+        <li>Familiar with REST APIs, Docker, and AWS</li>
+        <li>Skilled in database management (MySQL, PostgreSQL)</li>
       </ul>
+
     ),
   },
   {
@@ -26,7 +25,6 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>ACS Professional Year | Monash College | Mar 2025</li>
         <li>Bachelor of Computer Science | RMIT University | Dec 2023</li>
-        <li>High School Diploma| Lyndale Secondary College | Nov 2020</li>
       </ul>
     ),
   },
@@ -37,8 +35,6 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Power Platform Fundamentals | Microsoft</li>
         <li>Cloud Computing | IBM</li>
-        <li>SharePoint | LinkedInLearn</li>
-        <li>ServiceNow | LinkedInLearn</li>
       </ul>
     ),
   },
@@ -81,7 +77,7 @@ const AboutSection = () => {
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
           <h2 className="text-4xl font-mono font-bold text-white mb-4">ABOUT ME</h2>
           <p className="text-base lg:text-lg">
-            Highly motivated and ambitious Computer Science graduate seeking an entry level position to leverage my strong technical skills and 1+ years of customer service experience, while contributing to a company&apos;s growth and achieving its goals.
+          Software Engineer with a solid foundation in computer science and practical experience in designing, building, and optimizing software systems. Passionate about crafting innovative solutions and thriving in collaborative team environments. Dedicated to continuous learning and exploring emerging technologies to deliver impactful and high-performing projects.
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
