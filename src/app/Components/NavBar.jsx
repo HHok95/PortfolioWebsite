@@ -58,10 +58,21 @@ const NavBar = () => {
                 <NavLink href={link.path} title={link.title} />
               </li>
             ))}
+            <li>
+              <Link href="/resume.pdf" download title="Resume">
+                <span className="'block py-2 pl-3 pr-4 text-white sm:text-lg rounded md:p-0 hover:text-primary-500 duration-500'">Resume</span>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} setNavbarOpen={setNavbarOpen} navBarOpen={navbarOpen} /> : null}
+      {navbarOpen ? (
+        <MenuOverlay
+          links={navLinks}
+          setNavbarOpen={setNavbarOpen}
+          navBarOpen={navbarOpen}
+        />
+      ) : null}
     </nav>
   );
 };
