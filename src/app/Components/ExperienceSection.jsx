@@ -6,9 +6,22 @@ import { motion, useInView } from "framer-motion";
 const ExperienceData = [
   {
     id: 1,
+    title: "Freelance Software Engineer",
+    company: "Private Client",
+    date: "Apr. 2025 -- Current",
+    descriptions: [
+      "Replaced expensive no-code automation tools with a fully custom AWS solution at a fraction of the cost",
+      "Removed the need for manual data entry, saving days of work per month",
+      "Helped the client scale and streamline their business processes",
+      "Included full-cycle involvement from requirements gathering and prototyping to deployment and client consultation on future improvements",
+    ],
+    imgUrl: "/Images/HH-logo-s.png",
+  },
+  {
+    id: 2,
     title: "Software Engineer Intern",
     company: "Beyond Zero Technologies Pty Ltd",
-    date: "Nov. 2024 -- Current",
+    date: "Nov. 2024 -- Feb. 2025",
     descriptions: [
       "Assist in developing and implementing frontend and backend solutions",
       "Collaborate with UX/UI teams to create seamless user experiences",
@@ -20,7 +33,7 @@ const ExperienceData = [
     imgUrl: "/Images/bztIcon.png",
   },
   {
-    id: 2,
+    id: 3,
     title: "Machine Learning Engineer",
     company: "Sahara Space Pty Ltd",
     date: "Jul. 2023 -- Nov. 2023",
@@ -32,7 +45,7 @@ const ExperienceData = [
     imgUrl: "/Images/sahara_logo.png",
   },
   {
-    id: 3,
+    id: 4,
     title: "Software Engineer",
     company: "COSC2299",
     date: "Jul. 2023 -- Nov. 2023",
